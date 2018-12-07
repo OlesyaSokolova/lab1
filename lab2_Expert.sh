@@ -1,12 +1,12 @@
-#!bin/bash
+#!/bin/bash
 echo "1. Создадим в домашней директории файл shared.txt:"
->shared.txt
+> shared.txt
 echo "Посмотрим,какими правами доступа он обладает, используя команду ls -la:"
 ls -la shared.txt
-echo "(-rw-r--r-- чтение и запись)
+echo "(-rw-r--r-- чтение и запись)"
 echo "2. C помощью команды chmod сделаем так, чтобы созданный файл был доступен только его владельцу и только на чтение."
 chmod -r-------- shared.txt
-echo "или  chmod 400 shared.txt, где 400 - код команды)"
+echo "(или  chmod 400 shared.txt, где 400 - код команды)"
 echo "3. С помощью команды chown сделаем пользователя valkova владельцем файла shared.txt:"
  # chown valkova shared.txt
 echo "4. Проделаем операции  1-3 с директорие exchange:"
