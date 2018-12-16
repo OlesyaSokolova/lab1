@@ -30,7 +30,10 @@ let result=$1*$2
 fi
 echo $result
 
-echo "4."
+
+echo "4.Использование переменной окружения:"
+export ARITHMETIC_OP=add
+
 #!/bin/bash
 op = $3
 if [ -z "$3" ]
