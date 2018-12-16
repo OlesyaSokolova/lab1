@@ -30,5 +30,27 @@ let result=$1*$2
 fi
 echo $result
 
+echo "4."
+#!/bin/bash
+op = $3
+if [ -z "$3" ]
+then 
+op=$ARITHMETIC_OP
+fi
+
+if [ $op = "add" ]
+then
+let result=$1+$2
+fi
+if [ $op = "sub" ]
+then
+let result=$1-$2
+fi
+if [ $op = "mul" ]
+then
+let result=$1*$2
+fi
+echo $result
+
 
 
