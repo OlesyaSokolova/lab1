@@ -34,4 +34,4 @@ echo "-три цифры"
 echo "-две буквы"
 echo "-две или три цифры"
 
- egrep  "^[ABEKMHOPCTYX][0-9]{3}[ABEKMNOPCTYX]{2}[0-9]{2,3}$" patterns.txt
+egrep  "^[ABEKMHOPCTYX][0-9]{3}[ABEKMNOPCTYX]{2}[0-9]{2,3}$" patterns.txt
