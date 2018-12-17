@@ -1,59 +1,37 @@
 #!/bin/bash
-echo "1. Напечатаем слово Hello 3 раза:"
-#!/bin/bash
-index=0
-k=$1
-while [[ $index < $k ]]
-do
-echo "Hello"
-let "index=index+1"
-done
+wget http://factorized.net/crusoe.txt
 
-echo "2. Скрипт, суммирующий два числа, переданных в качестве параметров командной строки:"
-#!/bin/bash
-sum=$(($1+$2))
-echo $sum
+echo "все слова, начинающиеся на 'z'"
+egrep "\sz" crusoe.txt
 
-echo "3.Усовершенствованный скрипт из 2 пункта: после переменных передаем арифметическое действие:"
-#!/bin/bash
-if [ $3 = "add" ]
-then
-let result=$1+$2
-fi
-if [ $3 = "sub" ]
-then
-let result=$1-$2
-fi
-if [ $3 = "mul" ]
-then
-let result=$1*$2
-fi
-echo $result
+echo "все слова из 16 букв"
+egrep "[[:alpha:]]{16}" crusoe.txt
 
+echo "все слова, начинающиеся на 'a' и заканчивающиеся на 'c'"
+egrep "\sa[[:alpha:]]*c\b" crusoe.txt
 
-echo "4.Использование переменной окружения:"
-export ARITHMETIC_OP=add
-
-#!/bin/bash
-op = $3
-if [ -z "$3" ]
-then 
-op=$ARITHMETIC_OP
-fi
-
-if [ $op = "add" ]
-then
-let result=$1+$2
-fi
-if [ $op = "sub" ]
-then
-let result=$1-$2
-fi
-if [ $op = "mul" ]
-then
-let result=$1*$2
-fi
-echo $result
+echo "все слова, начинающиеся на 'ab', но у которых третья буква не 'o'"
+egrep "\sab[^o]*\b" crusoe.txt
 
 
 
+
+wget http://factorized.net/patterns.txt
+
+echo "состоят только из цифр"
+egrep "^[0-9]+$" patterns.txt
+
+echo "состоят только из букв"
+egrep "^[[:alpha:]]+$" patterns.txt
+
+
+
+echo "все строки, которые могут являться валидными российскими автомобильными"
+echo " номерами (используя заглавные английские буквы)"
+echo "Валидным номером будем считать следующую комбинацию:"
+echo "-буква"
+echo "-три цифры"
+echo "-две буквы"
+echo "-две или три цифры"
+
+ egrep  "^[ABEKMHOPCTYX][0-9]{3}[ABEKMNOPCTYX]{2}[0-9]{2,3}$" patterns.txt
