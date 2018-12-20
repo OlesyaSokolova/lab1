@@ -34,7 +34,10 @@ echo $result
 echo "4.Использование переменной окружения:"
 export ARITHMETIC_OP=add
 #!/bin/bash
+op=$3
+if [ -z "$3"]
 op=$ARITHMETIC_OP
+fi
 if [ $op = "add" ]
 then
 let result=$1+$2
